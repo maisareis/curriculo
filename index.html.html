@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currículo - Maisa Reis Araujo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .resume-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar (Roxa Suave Elegante) - COR SÓLIDA PARA IMPRESSÃO */
+        .sidebar {
+            width: 35%;
+            background: #8a6bb8; /* Roxo suave e elegante - COR SÓLIDA */
+            color: white;
+            padding: 40px 30px;
+            position: relative;
+        }
+
+        .photo-container {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .photo-frame {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: white;
+            margin: 0 auto 20px;
+            overflow: hidden;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            position: relative;
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Header no lado direito - SEM TÍTULO */
+        .main-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #8a6bb8; /* Mesma cor da sidebar */
+        }
+
+        .main-header h1 {
+            font-size: 38px;
+            color: #8a6bb8; /* Mesma cor da sidebar */
+            margin-bottom: 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            line-height: 1.2;
+        }
+
+        .section-title {
+            font-size: 22px;
+            margin: 25px 0 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .contact-info p {
+            margin: 8px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-info a:hover {
+            color: #f0e6ff;
+            text-decoration: underline;
+        }
+
+        .contact-info i {
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+            min-width: 20px;
+        }
+
+        .skills-list {
+            list-style: none;
+        }
+
+        .skills-list li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+            line-height: 1.4;
+        }
+
+        .skills-list li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: white;
+            font-size: 18px;
+        }
+
+        .skills-category {
+            font-weight: 600;
+            margin-top: 15px;
+            margin-bottom: 6px;
+            color: #f0e6ff;
+            font-size: 15px;
+        }
+
+        .tools-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .tool-tag {
+            background: rgba(255, 255, 255, 0.25);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+        }
+
+        .soft-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .soft-skill-tag {
+            background: rgba(255, 255, 255, 0.25);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+        }
+
+        /* Main Content */
+        .main-content {
+            width: 65%;
+            padding: 40px;
+        }
+
+        .content-section {
+            margin-bottom: 25px;
+        }
+
+        .main-section-title {
+            font-size: 26px;
+            color: #8a6bb8; /* Mesma cor da sidebar */
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #eee;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .job, .education-item, .course-item {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .job:last-child, .education-item:last-child, .course-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .job-title {
+            font-size: 19px;
+            color: #333;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .company {
+            font-size: 16px;
+            color: #8a6bb8; /* Mesma cor da sidebar */
+            font-weight: 500;
+            margin: 2px 0;
+        }
+
+        .date {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 6px;
+            display: block;
+            font-size: 15px;
+        }
+
+        .job-description, .course-description {
+            color: #555;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        .course-item .date {
+            color: #8a6bb8; /* Mesma cor da sidebar */
+            font-weight: 500;
+        }
+
+        /* Estilo compacto para cursos */
+        .course-compact {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed #eee;
+        }
+
+        .course-compact:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .course-name {
+            font-size: 17px;
+            color: #333;
+            font-weight: 600;
+            flex: 1;
+        }
+
+        .course-info {
+            font-size: 15px;
+            color: #8a6bb8; /* Mesma cor da sidebar */
+            text-align: right;
+            min-width: 120px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            color: #888;
+            font-size: 14px;
+        }
+
+        @media (max-width: 900px) {
+            .resume-container {
+                flex-direction: column;
+            }
+            .sidebar, .main-content {
+                width: 100%;
+            }
+            .main-header {
+                margin-bottom: 25px;
+            }
+            .course-compact {
+                flex-direction: column;
+            }
+            .course-info {
+                text-align: left;
+                margin-top: 3px;
+            }
+        }
+
+        /* CSS OTIMIZADO PARA IMPRESSÃO/PDF - COR SÓLIDA */
+        @media print {
+            body {
+                padding: 0 !important;
+                margin: 0 !important;
+                background: white !important;
+                width: 100% !important;
+            }
+            
+            .resume-container {
+                max-width: 100% !important;
+                box-shadow: none !important;
+                border-radius: 0 !important;
+                margin: 0 !important;
+                display: flex !important;
+                min-height: auto !important;
+                page-break-inside: avoid !important;
+            }
+            
+            .sidebar {
+                width: 35% !important;
+                background: #8a6bb8 !important; /* COR SÓLIDA PARA IMPRESSÃO */
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                page-break-inside: avoid !important;
+            }
+            
+            .main-content {
+                width: 65% !important;
+                page-break-inside: avoid !important;
+            }
+            
+            .contact-info a {
+                color: white !important;
+                text-decoration: none !important;
+            }
+            
+            footer {
+                display: none !important;
+            }
+            
+            /* Garantir que TODAS as cores sejam impressas */
+            .tool-tag, .soft-skill-tag, .skills-category,
+            .company, .course-info, .main-section-title,
+            .main-header h1, .course-item .date,
+            .sidebar, .section-title {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            
+            /* Ajustar opacidade para impressão */
+            .tool-tag, .soft-skill-tag {
+                background: rgba(255, 255, 255, 0.3) !important;
+            }
+            
+            /* Evitar quebra de página em lugares ruins */
+            .job, .education-item, .course-item, .content-section {
+                page-break-inside: avoid !important;
+            }
+            
+            .photo-frame {
+                border: 3px solid rgba(255, 255, 255, 0.3) !important;
+            }
+            
+            /* Links pretos para impressão (melhor legibilidade) */
+            .contact-info a {
+                color: white !important;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="resume-container">
+        <!-- Sidebar Roxa Suave Elegante -->
+        <div class="sidebar">
+            <div class="photo-container">
+                <div class="photo-frame">
+                    <img id="profile-photo" src="foto-maisa.png" alt="Maisa Reis Araujo" 
+                         style="object-fit: cover; transform: scale(1.0); object-position: center center;">
+                </div>
+            </div>
+
+            <div class="contact-info">
+                <h2 class="section-title">Contato</h2>
+                <p><i class="fas fa-map-marker-alt"></i> Juiz de Fora - MG</p>
+                <p><i class="fas fa-envelope"></i> maisareisaraujo@hotmail.com</p>
+                <p><i class="fab fa-whatsapp"></i> (32) 98886-0399</p>
+                <p>
+                    <i class="fab fa-linkedin"></i> 
+                    <a href="https://www.linkedin.com/in/maisareisaraujo" target="_blank">
+                        linkedin.com/in/maisareisaraujo
+                    </a>
+                </p>
+                <p>
+                    <i class="fab fa-github"></i> 
+                    <a href="https://github.com/maisareis" target="_blank">
+                        github.com/maisareis
+                    </a>
+                </p>
+            </div>
+
+            <div class="skills-section">
+                <h2 class="section-title">Habilidades</h2>
+                
+                <div class="skills-category">Segurança Cibernética</div>
+                <ul class="skills-list">
+                    <li>Gestão de Vulnerabilidades</li>
+                    <li>Segurança de Rede</li>
+                    <li>Resposta a Incidentes</li>
+                </ul>
+                
+                <div class="skills-category">Gestão de Identidade</div>
+                <ul class="skills-list">
+                    <li>Active Directory</li>
+                    <li>Group Policy (GPO)</li>
+                    <li>Gestão de Usuários</li>
+                </ul>
+                
+                <div class="skills-category">Conceitos de Segurança</div>
+                <ul class="skills-list">
+                    <li>Tríade CIA</li>
+                    <li>Gestão de Riscos</li>
+                </ul>
+                
+                <div class="skills-category">Idiomas</div>
+                <ul class="skills-list">
+                    <li>Inglês - Básico</li>
+                </ul>
+            </div>
+
+            <div class="tools-section">
+                <h2 class="section-title">Ferramentas & Tecnologias</h2>
+                <div class="tools-list">
+                    <span class="tool-tag">pfSense</span>
+                    <span class="tool-tag">Microsoft Defender</span>
+                    <span class="tool-tag">Hyper-V</span>
+                    <span class="tool-tag">Windows Server</span>
+                    <span class="tool-tag">Linux</span>
+                    <span class="tool-tag">OpenVPN</span>
+                    <span class="tool-tag">Git/GitHub</span>
+                    <span class="tool-tag">Active Directory</span>
+                    <span class="tool-tag">BitLocker</span>
+                    <span class="tool-tag">Windows Backup</span>
+                    <span class="tool-tag">Ruckus Controller</span>
+                    <span class="tool-tag">Wireshark</span>
+                </div>
+            </div>
+
+            <div class="soft-skills-section">
+                <h2 class="section-title">Soft Skills</h2>
+                <div class="soft-skills">
+                    <span class="soft-skill-tag">Proatividade</span>
+                    <span class="soft-skill-tag">Comunicação</span>
+                    <span class="soft-skill-tag">Trabalho em Equipe</span>
+                    <span class="soft-skill-tag">Aprendizagem Rápida</span>
+                    <span class="soft-skill-tag">Análise Crítica</span>
+                    <span class="soft-skill-tag">Atenção a Detalhes</span>
+                    <span class="soft-skill-tag">Resolução de Problemas</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Conteúdo Principal -->
+        <div class="main-content">
+            <!-- CABEÇALHO NO LADO DIREITO - APENAS NOME -->
+            <div class="main-header">
+                <h1>MAISA REIS ARAUJO</h1>
+            </div>
+
+            <!-- CURSOS E CERTIFICAÇÕES primeiro - VERSÃO COMPACTA COM 2025 NO COMPTIA -->
+            <div class="content-section">
+                <h2 class="main-section-title">Cursos e Certificações</h2>
+                
+                <div class="course-compact">
+                    <div class="course-name">Preparatório CompTIA Security+</div>
+                    <div class="course-info">Ser+Tech / Núclea & CECyber - 2025</div>
+                </div>
+                
+                <div class="course-compact">
+                    <div class="course-name">Cyber Academy 2025</div>
+                    <div class="course-info">FEBRABAN - 2025</div>
+                </div>
+                
+                <div class="course-compact">
+                    <div class="course-name">Analista de Infra e Redes</div>
+                    <div class="course-info">CECyber - 2025</div>
+                </div>
+                
+                <div class="course-compact">
+                    <div class="course-name">CCNA: Enterprise Networking, Security and Automation</div>
+                    <div class="course-info">Cisco - 2024</div>
+                </div>
+                
+                <div class="course-compact">
+                    <div class="course-name">CyberOps Associate</div>
+                    <div class="course-info">Cisco - 2023</div>
+                </div>
+                
+                <div class="course-compact">
+                    <div class="course-name">Network Security</div>
+                    <div class="course-info">Cisco - 2023</div>
+                </div>
+            </div>
+
+            <!-- EDUCAÇÃO segundo -->
+            <div class="content-section">
+                <h2 class="main-section-title">Educação</h2>
+                
+                <div class="education-item">
+                    <div class="job-title">Licenciatura em Computação</div>
+                    <div class="company">Universidade Federal de Juiz de Fora</div>
+                    <span class="date">Em andamento</span>
+                </div>
+                
+                <div class="education-item">
+                    <div class="job-title">Bacharelado em Sistemas de Informação</div>
+                    <div class="company">UniAcademia</div>
+                    <span class="date">7 períodos concluídos</span>
+                </div>
+            </div>
+
+            <!-- EXPERIÊNCIA PROFISSIONAL terceiro -->
+            <div class="content-section">
+                <h2 class="main-section-title">Experiência Profissional</h2>
+                
+                <div class="job">
+                    <div class="job-title">Analista de Suporte</div>
+                    <div class="company">Processa Sistemas</div>
+                    <span class="date">Setembro 2022 - Atual</span>
+                    <p class="job-description">Suporte técnico e atendimento direto ao cliente, garantindo satisfação e resolução eficiente. Identificação e correção de problemas relacionados ao ERP, garantindo continuidade operacional. Manutenção de sistemas críticos com foco na estabilidade e performance.</p>
+                </div>
+                
+                <div class="job">
+                    <div class="job-title">Operadora de Telemarketing Técnico</div>
+                    <div class="company">Vero Internet</div>
+                    <span class="date">Maio 2021 - Julho 2022</span>
+                    <p class="job-description">Atendimento técnico especializado e suporte remoto a clientes. Apoio à configuração de redes e roteadores, otimizando conectividade.</p>
+                </div>
+                
+                <div class="job">
+                    <div class="job-title">Estagiária de Tecnologia</div>
+                    <div class="company">INSS</div>
+                    <span class="date">Jan 2021 - Setembro 2022</span>
+                    <p class="job-description">Instalação e atualização de software, mantendo sistemas atualizados. Gerenciamento de redes e equipamentos, assegurando funcionamento adequado. Suporte técnico a usuários e manutenção de impressoras/scanners.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Currículo atualizado em Junho 2024 | Desenvolvido com HTML/CSS</p>
+    </footer>
+</body>
+</html>
